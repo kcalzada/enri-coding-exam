@@ -1,0 +1,37 @@
+use `ERNI-CODING-TEST`;
+
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("S",5,10,15,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("S",10,15,20,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("S",15,20,25,FALSE);
+
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("S",10,5,15,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("S",15,10,20,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("S",20,15,25,FALSE);
+
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("S",15,10,5,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("S",20,15,10,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("S",25,20,15,FALSE);
+
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("M",30,30,35,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("M",40,45,50,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("M",55,60,65,FALSE);
+
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("M",30,25,35,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("M",45,40,50,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("M",60,55,65,FALSE);
+
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("M",35,30,25,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("M",50,45,40,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("M",65,60,55,FALSE);
+
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("L",70,75,80,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("L",85,90,95,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("L",100,105,110,FALSE);
+
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("L",75,70,80,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("L",90,85,95,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("L",105,100,110,FALSE);
+
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("L",80,75,70,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("L",95,90,85,FALSE);
+INSERT INTO parking_spots(v_type,first_entrance_distance,second_entrance_distance,third_entrance_distance,occupied) VALUES("L",110,105,100,FALSE);

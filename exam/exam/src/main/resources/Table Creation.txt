@@ -1,0 +1,34 @@
+DROP SCHEMA IF EXISTS `ERNI-CODING-TEST`;
+
+CREATE SCHEMA `ERNI-CODING-TEST`;
+
+use `ERNI-CODING-TEST`;
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS `parking_spots`;
+
+CREATE TABLE `parking_spots` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `v_type` varchar(3) DEFAULT NULL,
+   `occupied` boolean,
+  `first_entrance_distance` int(45) DEFAULT NULL,
+  `second_entrance_distance` int(45) DEFAULT NULL,
+  `third_entrance_distance` int(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE utf8_unicode_ci;
+
+DROP TABLE IF EXISTS `parking_customer`;
+
+CREATE TABLE `parking_customer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `entrance` int(1) NOT NULL,
+  `parking_spot` int(11) NOT NULL,
+  `v_type` varchar(45) DEFAULT NULL,
+  `plate_number` varchar(45) DEFAULT NULL,
+  `time_in` DATETIME NOT NULL,
+  `time_out` DATETIME,
+  PRIMARY KEY (`id`),
+  KEY `FK_parking_spot_idx` (`parking_spot`),
+  CONSTRAINT `FK_PARKING_SPOT` FOREIGN KEY (`parking_spot`) REFERENCES `parking_spots` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE utf8_unicode_ci;
