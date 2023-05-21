@@ -1,0 +1,14 @@
+Database
+
+- Application: MySQL Workbench 8.0 CE
+
+- Script:
+		- Database schema: enri-coding-exam\exam\exam\src\main\resources\Table Creation.txt
+		- Sample Data: 	 enri-coding-exam\exam\exam\src\main\resources\Sample Data.txt
+- Credentials
+		- User: sample
+		- Sample!12345
+
+Project Specification
+
+- Location: enri-coding-exam\exam\exam\src\main\resources\Mini Project Spec
