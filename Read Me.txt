@@ -7,7 +7,7 @@ Database
 		- Sample Data: 	 enri-coding-exam\exam\exam\src\main\resources\Sample Data.txt
 - Credentials
 		- User: sample
-		- Sample!12345
+		- Pass: Sample!12345
 
 Project Specification
 
