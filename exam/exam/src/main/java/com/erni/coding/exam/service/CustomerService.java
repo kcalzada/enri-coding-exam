@@ -9,9 +9,9 @@ import com.erni.coding.exam.entity.CustomerEntity;
 
 public interface CustomerService {
 	
-	public List<CustomerEntity> fetchAllCustomer();
+	public ResponseEntity<List<CustomerEntity>> fetchAllCustomer();
 	
-	public List<CustomerEntity> fetchCurrentCustomers();
+	public ResponseEntity<List<CustomerEntity>> fetchCurrentCustomers();
 	
 	public ResponseEntity<CustomerEntity> saveCustomerVehicle(CustomerEntity Customer);
 	

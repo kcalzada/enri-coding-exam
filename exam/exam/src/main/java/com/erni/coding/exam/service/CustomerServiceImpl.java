@@ -26,15 +26,27 @@ public class CustomerServiceImpl implements CustomerService{
 	ParkingSpotsRepo parkingSpotsRepo;
 	
 	@Override
-	public List<CustomerEntity> fetchAllCustomer() {
+	public ResponseEntity<List<CustomerEntity>> fetchAllCustomer() {
 		
-		return CustomerRepo.findAll();
+		List<CustomerEntity> customers = CustomerRepo.findAll();
+		
+		if(customers == null) {
+			return new ResponseEntity<List<CustomerEntity>>(HttpStatus.NOT_FOUND);
+		}
+		
+		return new ResponseEntity<List<CustomerEntity>>(customers,HttpStatus.OK);
 	}
 	
 	@Override
-	public List<CustomerEntity> fetchCurrentCustomers() {
+	public ResponseEntity<List<CustomerEntity>> fetchCurrentCustomers() {
 		
-		return CustomerRepo.fetchAllCurrentCustomers();
+		List<CustomerEntity> customers = CustomerRepo.fetchAllCurrentCustomers();
+		
+		if(customers == null) {
+			return new ResponseEntity<List<CustomerEntity>>(HttpStatus.NOT_FOUND);
+		}
+		
+		return new ResponseEntity<List<CustomerEntity>>(customers,HttpStatus.BAD_REQUEST);
 	}
 
 	@Override
@@ -77,12 +89,7 @@ public class CustomerServiceImpl implements CustomerService{
 			
 			customer.setTimeOut(getCurrentTimeAndDate());
 			
-			CustomerBillEntity customerBill = new CustomerBillEntity();
-			customerBill.setId(customer.getId());
-			customerBill.setBill(calculateBill(customer));
-			customerBill.setPlateNumber(customer.getPlateNumber());
-			customerBill.setTimeIn(customer.getTimeIn());
-			customerBill.setTimeOut(customer.getTimeOut());
+			CustomerBillEntity customerBill = setCustomerBill(customer);
 			
 			parkingSpot.setOccupied(false);
 			
@@ -92,8 +99,21 @@ public class CustomerServiceImpl implements CustomerService{
 			return new ResponseEntity<CustomerBillEntity>(customerBill,HttpStatus.OK); 
 		}
 		else {
-			return new ResponseEntity<CustomerBillEntity>(HttpStatus.BAD_REQUEST); 
+			return new ResponseEntity<CustomerBillEntity>(HttpStatus.BAD_REQUEST);
 		}
+	}
+	
+	private CustomerBillEntity setCustomerBill(CustomerEntity customer) {
+		
+		CustomerBillEntity customerBill = new CustomerBillEntity();
+		
+		customerBill.setId(customer.getId());
+		customerBill.setBill(calculateBill(customer));
+		customerBill.setPlateNumber(customer.getPlateNumber());
+		customerBill.setTimeIn(customer.getTimeIn());
+		customerBill.setTimeOut(customer.getTimeOut());
+		
+		return customerBill;
 	}
 	
 	private ResponseEntity<CustomerEntity> saveSmallVehicleCustomer(CustomerEntity customer) {
@@ -177,7 +197,7 @@ public class CustomerServiceImpl implements CustomerService{
 		parkingSpotsRepo.save(parkingSpot);
 		
 		
-		return new ResponseEntity<CustomerEntity>(CustomerRepo.save(customer), HttpStatus.OK); 
+		return new ResponseEntity<CustomerEntity>(CustomerRepo.save(customer), HttpStatus.CREATED); 
 	}
 	
 	private Date getCurrentTimeAndDate() {
@@ -193,7 +213,7 @@ public class CustomerServiceImpl implements CustomerService{
 		CustomerEntity customerCheck = CustomerRepo.fetchCustomerByPlateNymber(plateNumber);
 		
 		if(customerCheck != null) {
-			System.out.println("ID: "+customerCheck.getId());
+
 			return true;
 		}
 		

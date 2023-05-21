@@ -29,13 +29,13 @@ public class CustomerController {
 	CustomerService customerService;
 	
 	@GetMapping(value="all-customers")
-	public List<CustomerEntity> fetchCustomers() {
+	public ResponseEntity<List<CustomerEntity>> fetchCustomers() {
 		
 		return customerService.fetchAllCustomer();
 	}
 	
 	@GetMapping(value="current-customers")
-	public List<CustomerEntity> fetchCurrentCustomers() {
+	public ResponseEntity<List<CustomerEntity>> fetchCurrentCustomers() {
 		
 		return customerService.fetchCurrentCustomers();
 	}
